@@ -1,6 +1,7 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
-const galleryWrapper = document.querySelector(".gallery") 
+const galleryWrapper = document.querySelector(".gallery");
+
 
 function createLi(galleryItems) {
 
@@ -10,11 +11,19 @@ function createLi(galleryItems) {
 const result = createLi(galleryItems);
 galleryWrapper.insertAdjacentHTML("beforeend", result);
 
-function listHandler(e) {
+
+function openModal(e) {
     e.preventDefault();
-    const dataSource = e.target.dataset.source;
-    console.log(dataSource);
+    const instance = basicLightbox.create(`<img src="${e.target.dataset.source}" width="800" height="600"/>`);
+    window.addEventListener(`keydown`, onKeyPress);
+    function onKeyPress(e) {
+    if (e.key === `Escape`) {        
+        instance.close()
+    }   
 }
-galleryWrapper.addEventListener('click', listHandler)
+
+    instance.show();       
+}
+galleryWrapper.addEventListener('click', openModal);
 
 console.log(galleryItems);
