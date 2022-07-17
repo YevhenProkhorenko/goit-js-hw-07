@@ -21,6 +21,6 @@ function openModal(e) {
         captionDelay: 250,
         captionPosition: "bottom",
     });
-    lightbox.open();    
+    // lightbox.open();    
 }
 console.log(galleryItems);
