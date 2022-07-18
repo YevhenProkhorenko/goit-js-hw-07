@@ -11,15 +11,8 @@ function createLi(galleryItems) {
 
 const result = createLi(galleryItems);
 galleryWrapper.insertAdjacentHTML("beforeend", result);
-galleryWrapper.addEventListener('click', openModal);
-
-
-function openModal(e) {
-    e.preventDefault();
-    const lightbox = new SimpleLightbox('.gallery a', {
+const lightbox = new SimpleLightbox('.gallery a', {
         captionsData: "alt",
         captionDelay: 250,
         captionPosition: "bottom",
     });
-}
-console.log(galleryItems);
